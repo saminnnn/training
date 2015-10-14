@@ -6,15 +6,18 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
     Intent intent;
+    EditText editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        editor=(EditText)findViewById(R.id.input);
         intent=new Intent(this,Main2Activity.class);
     }
 
@@ -41,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void next(View view) {
+        intent.putExtra("Text",editor.getText().toString());
         startActivity(intent);
     }
 }
